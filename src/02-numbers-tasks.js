@@ -7,7 +7,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns an area of a rectangle given by width and heigth.
  *
@@ -19,10 +18,9 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
-
 
 /**
  * Returns a circumference of circle given by radius.
@@ -35,8 +33,8 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCicleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCicleCircumference(radius) {
+  return 2 * Math.PI * radius;
 }
 
 /**
@@ -86,10 +84,9 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  return -b / a;
 }
-
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
@@ -109,8 +106,9 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const angle = Math.atan2(y2, x2) - Math.atan2(y1, x1);
+  return angle < 0 ? angle + 2 * Math.PI : angle;
 }
 
 /**
@@ -125,10 +123,9 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return Number(value.toString().slice(-1));
 }
-
 
 /**
  * Returns a number by given string representation.
@@ -141,10 +138,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
-
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
  *
@@ -158,8 +154,8 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelipidedDiagonal(a, b, c) {
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 /**
@@ -200,8 +196,21 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n <= 3) {
+    return n > 1;
+  }
+  if (n % 2 === 0 || n % 3 === 0) {
+    return false;
+  }
+  let i = 5;
+  while (i ** 2 <= n) {
+    if (n % i === 0 || n % (i + 2) === 0) {
+      return false;
+    }
+    i += 6;
+  }
+  return true;
 }
 
 /**
@@ -219,8 +228,9 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const num = Number(value);
+  return Number.isNaN(num) ? def : num;
 }
 
 module.exports = {

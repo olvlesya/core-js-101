@@ -17,9 +17,7 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(value1, value2) {
-  return value1 + value2;
-}
+const concatenateStrings = (value1, value2) => value1 + value2;
 
 /**
  * Returns the length of given string.
@@ -32,9 +30,7 @@ function concatenateStrings(value1, value2) {
  *   'b'     => 1
  *   ''      => 0
  */
-function getStringLength(value) {
-  return value.length;
-}
+const getStringLength = ({ length }) => length;
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
@@ -49,9 +45,7 @@ function getStringLength(value) {
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`;
-}
+const getStringFromTemplate = (firstName, lastName) => `Hello, ${firstName} ${lastName}!`;
 
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
@@ -77,9 +71,7 @@ function extractNameFromTemplate(value) {
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
-function getFirstChar(value) {
-  return value[0];
-}
+const getFirstChar = ([firstLetter]) => firstLetter;
 
 /**
  * Removes a leading and trailing whitespace characters from string.
@@ -171,9 +163,7 @@ function convertToUpperCase(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
-}
+const extractEmails = (str) => str.split(';');
 
 /**
  * Returns the string representation of rectangle with specified width and height
@@ -235,8 +225,8 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**
