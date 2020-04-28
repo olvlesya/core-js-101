@@ -62,9 +62,6 @@ function getPowerFunction(exponent) {
 function getPolynom() {
   throw new Error('Not implemented');
 }
-// function getPolynom(...int) {
-//   return (x) => (int.length ? int.reverse().reduce((acc, num, index) => acc + num * x ** index, 0) : null);
-// }
 
 /**
  * Memoizes passed function and returns function
