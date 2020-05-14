@@ -261,7 +261,7 @@ function getSecondItems(arr) {
 function propagateItemsByPositionIndex(arr) {
   return arr.reduce(
     (acc, item, index) => acc.concat(Array(index + 1).fill(item)),
-    []
+    [],
   );
 }
 
@@ -298,7 +298,7 @@ function get3TopItems(arr) {
 function getPositivesCount(arr) {
   return arr.reduce(
     (acc, item) => (typeof item === 'number' && item > 0 ? acc + 1 : acc),
-    0
+    0,
   );
 }
 
