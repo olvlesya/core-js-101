@@ -259,7 +259,10 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-  return arr.reduce((acc, item, index) => acc.concat(Array(index + 1).fill(item)), []);
+  return arr.reduce(
+    (acc, item, index) => acc.concat(Array(index + 1).fill(item)),
+    []
+  );
 }
 
 /**
@@ -293,7 +296,10 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  return arr.reduce((acc, item) => (typeof item === 'number' && item > 0 ? acc + 1 : acc), 0);
+  return arr.reduce(
+    (acc, item) => (typeof item === 'number' && item > 0 ? acc + 1 : acc),
+    0
+  );
 }
 
 /**
@@ -574,8 +580,13 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const { length } = arr;
+  const head = arr.slice(0, length / 2);
+  const tail = arr.slice(length / 2 + (length % 2));
+  return length % 2 === 1
+    ? [...tail, arr[Math.floor(length / 2)], ...head]
+    : [...tail, ...head];
 }
 
 module.exports = {
